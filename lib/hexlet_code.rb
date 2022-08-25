@@ -13,4 +13,8 @@ module HexletCode
       end
     end
   end
+
+  def self.form_for(model, url: "#", method: "post")
+    "<form action=\"#{url}\" method=\"#{method}\"></form>"
+  end
 end
