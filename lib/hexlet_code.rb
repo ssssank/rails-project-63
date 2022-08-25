@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "hexlet_code/version"
+require_relative 'hexlet_code/version'
 
 module HexletCode
   class Tag
@@ -14,7 +14,7 @@ module HexletCode
     end
   end
 
-  def self.form_for(model, url: "#", method: "post")
+  def self.form_for(_model, url: '#', method: 'post')
     "<form action=\"#{url}\" method=\"#{method}\"></form>"
   end
 end
