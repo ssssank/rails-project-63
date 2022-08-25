@@ -25,7 +25,7 @@ jobs:
         bundler-cache: true
 
     - name: Install dependencies
-        run: make install
+      run: make install
     - name: Run lint
       run: make lint
     - name: Run tests
