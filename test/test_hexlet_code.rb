@@ -26,6 +26,7 @@ class TestHexletCode < Minitest::Test
     form = HexletCode.form_for user do |f|
       f.input :name
       f.input :job, as: :text
+      f.submit
     end
     assert { form == get_fixture('/fixtures/base_form.html') }
   end
@@ -35,6 +36,7 @@ class TestHexletCode < Minitest::Test
     form = HexletCode.form_for user, url: '#' do |f|
       f.input :name, class: 'user-input'
       f.input :job
+      f.submit
     end
     assert { form == get_fixture('/fixtures/form_with_attributes.html') }
   end
@@ -43,6 +45,7 @@ class TestHexletCode < Minitest::Test
     user = User.new name: 'rob', job: 'hexlet', gender: 'm'
     form = HexletCode.form_for user, url: '#' do |f|
       f.input :job, as: :text, rows: 50, cols: 50
+      f.submit 'Push me!'
     end
     assert { form == get_fixture('/fixtures/form_with_redefine.html') }
   end

@@ -25,11 +25,17 @@ module HexletCode
     args[:name] = field
     if args[:as] == :text
       args.delete(:as)
+      @data += Tag.build('label', for: field) { field.capitalize }
       @data += Tag.build('textarea', name: field, cols: args[:cols] || '20', rows: args[:rows] || '40', **args) do
         @model.public_send field
       end
     else
+      @data += Tag.build('label', for: field) { field.capitalize }
       @data += Tag.build('input', **args, type: 'text', value: @model.public_send(field))
     end
+  end
+
+  def self.submit(text = 'Save')
+    @data += Tag.build('input', type: 'submit', value: text)
   end
 end
