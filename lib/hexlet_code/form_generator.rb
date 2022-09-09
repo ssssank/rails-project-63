@@ -23,12 +23,12 @@ module HexletCode
       }
     end
 
-    def submit(text = 'Save')
-      @form_inputs << {
+    def submit(text = 'Save', **args)
+      @form_submit = {
         value: text,
         name: '',
         type: 'submit',
-        attrs: {}
+        attrs: args
       }
     end
   end

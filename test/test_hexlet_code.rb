@@ -12,13 +12,13 @@ class TestHexletCode < Minitest::Test
   def test_empty_form_with_default_params_is_generated
     user = User.new name: 'rob'
     form = HexletCode.form_for user
-    assert { form == '<form action="#" method="post"></form>' }
+    assert { form == get_fixture('fixtures/empty_form_1.html') }
   end
 
   def test_empty_form_is_generated
     user = User.new name: 'rob'
     form = HexletCode.form_for user, url: '/users', method: 'get'
-    assert { form == '<form action="/users" method="get"></form>' }
+    assert { form == get_fixture('fixtures/empty_form_2.html') }
   end
 
   def test_form_is_generated

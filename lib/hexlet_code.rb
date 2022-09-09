@@ -8,8 +8,8 @@ module HexletCode
   autoload(:Inputs, 'hexlet_code/inputs.rb')
 
   def self.form_for(model, attrs = {})
-    form = FormGenerator.new(model, attrs)
-    yield form if block_given?
-    FormRenderer.render(form)
+    form_generator = FormGenerator.new(model, attrs)
+    yield form_generator if block_given?
+    FormRenderer.render(form_generator)
   end
 end
